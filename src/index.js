@@ -27,7 +27,7 @@ app.post("/user", async (req, res) => {
 app.get("/users", async (req, res) => {
   const users = await prisma.user.findMany();
   if (users.length > 0) return res.status(200).send(users);
-  return res.status(404).send("No user found");
+  return res.status(404).send("Usuário não encontrado");
 });
 
 //rota para buscar um usuário pelo nome
@@ -39,7 +39,7 @@ app.get("/user/:name", async (req, res) => {
     },
   });
   if (user.length > 0) return res.status(200).send(user);
-  return res.send("No user found");
+  return res.send("Usuário não encontrado");
 });
 
 // Inicie o servidor na porta especificada
